@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_03a/text.dart';
+import 'package:flutter_03a/text_control.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,26 +44,13 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              width: double.infinity,
-              child: Text(_quotes[_quoteIndex],
-                  style: TextStyle(fontSize: 28), textAlign: TextAlign.center),
+            Quote(
+              index: _quoteIndex,
+              quoteText: _quotes,
             ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 60),
-                  width: 100,
-                  child: ElevatedButton(
-                      onPressed: _previous, child: Text('Previous')),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 60),
-                  width: 100,
-                  child: ElevatedButton(onPressed: _next, child: Text('Next')),
-                ),
-              ],
+            TextControl(
+              previous: _previous,
+              next: _next,
             ),
           ],
         ),
